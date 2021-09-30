@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GOL", "GOL\GOL.csproj", "{580C2366-E6FA-4B0E-BA07-722204FB8A9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GOL", "GOL\GOL.csproj", "{57FE0943-BA2F-4917-A75E-9CB4FB9E801C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{580C2366-E6FA-4B0E-BA07-722204FB8A9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{580C2366-E6FA-4B0E-BA07-722204FB8A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{580C2366-E6FA-4B0E-BA07-722204FB8A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{580C2366-E6FA-4B0E-BA07-722204FB8A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FE0943-BA2F-4917-A75E-9CB4FB9E801C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FE0943-BA2F-4917-A75E-9CB4FB9E801C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FE0943-BA2F-4917-A75E-9CB4FB9E801C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FE0943-BA2F-4917-A75E-9CB4FB9E801C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {66E3C17F-FFAF-462F-962F-A9A30A10DA41}
+		SolutionGuid = {132507B5-A369-45F2-84E6-EA4EA65EACA4}
 	EndGlobalSection
 EndGlobal
