@@ -1,28 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GOL
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
+            //Load grid of cells:
+            for (int i = 0; i < 30; i++) {
+                for (int j = 0; j < 30; j++) {
+                    Button cell = new Button();
+                    cell.Background = Brushes.Black;
+                    cell.Name = "cell_"+((15*i) + j).ToString();
+                    Grid.SetRow(cell, i);
+                    Grid.SetColumn(cell, j);
+                    gridMain.Children.Add(cell);
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button cell = (Button)sender;
+
+            if (cell.Name.Equals("start"))
+            {
+                ;
+            }
+            else if (cell.Background.Equals(Brushes.Black))
+                cell.Background = Brushes.White;
+            else
+                cell.Background = Brushes.Black;
         }
     }
 }
