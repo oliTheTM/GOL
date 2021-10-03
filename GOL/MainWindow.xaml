@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GOL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Name="gridMain">
+        Title="MainWindow">
+    <Grid Name="GOL">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -38,8 +38,9 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <!--extra row for START button-->
+            <RowDefinition/>
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
