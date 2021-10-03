@@ -76,68 +76,94 @@ namespace GOL
             }
         }
 
-        private void game()  {Dispatcher.Invoke(() =>
+        private void game()
         {
-            int neighbours;
-            Button cell;
-    
-            while (true) {
+            int neighbours = 0;
+            Button cell = null;
+
+            while (true)
+            {
                 //forAll <i, j> of the board:
                 for (int i = 0; (i < LENGTH); ++i)
                 {
                     for (int j = 0; (j < LENGTH); ++j)
                     {
-                        //reference cell (i, j)
-                        cell = (Button)GOL.Children[(LENGTH * i) + j];
+                        //board is owned by UI thread
+                        Dispatcher.Invoke(() => { 
+                            //reference cell (i, j)
+                            cell = (Button)GOL.Children[(LENGTH * i) + j];
+                        });
                         //get neighbour count
                         neighbours = liveNeighbours(i, j);
                         //State transition w/r neighbour count:
-                        switch (neighbours)
-                        {
+                        switch (neighbours) {
                             case 0:
-                                cell.Background = Brushes.Black;
+                                cell.Dispatcher.BeginInvoke((Action)(() => 
+                                    cell.Background = Brushes.Black
+                                ));
                                 break;
                             case 1:
-                                cell.Background = Brushes.Black;
+                                cell.Dispatcher.BeginInvoke((Action)(() => 
+                                    cell.Background = Brushes.Black
+                                ));
                                 break;
                             case 2:
                                 //no change
                                 break;
                             case 3:
-                                cell.Background = Brushes.White;
+                                cell.Dispatcher.BeginInvoke((Action)(() => 
+                                    cell.Background = Brushes.White
+                                ));
                                 break;
                             case 4:
-                                cell.Background = Brushes.Black;
+                                cell.Dispatcher.BeginInvoke((Action)(() =>
+                                    cell.Background = Brushes.Black
+                                ));
                                 break;
                             case 5:
-                                cell.Background = Brushes.Black;
+                                cell.Dispatcher.BeginInvoke((Action)(() =>
+                                    cell.Background = Brushes.Black
+                                ));
                                 break;
                             case 6:
-                                cell.Background = Brushes.Black;
+                                cell.Dispatcher.BeginInvoke((Action)(() =>
+                                    cell.Background = Brushes.Black
+                                ));
                                 break;
                             case 7:
-                                cell.Background = Brushes.Black;
+                                    cell.Dispatcher.BeginInvoke((Action)(() =>
+                                        cell.Background = Brushes.Black
+                                    ));
                                 break;
                             case 8:
-                                cell.Background = Brushes.Black;
+                                    cell.Dispatcher.BeginInvoke((Action)(() =>
+                                        cell.Background = Brushes.Black
+                                    ));
                                 break;
-                        }
+                            }
                     }
                 }
-        }});}
+            }
+        }
 
         private int liveNeighbours(int x, int y) 
         {
             int living = 0, location;
+            Button neighbour = null;
             for (int Xoff = -1; (Xoff < 2); ++Xoff) {
                 for (int Yoff = -1; (Yoff < 2); ++Yoff) {
-                    location = (x + Xoff) * LENGTH + y + Yoff;
+                    location = ((x + Xoff) * LENGTH) + y + Yoff;
                     if ((Xoff == 0) && (Yoff == Xoff))
                         ;//skip if self
                     else if ((location < 0) || (location > (Math.Pow(LENGTH, 2) - 1)))
                         ;//skip if outside grid
-                    else if (((Button)GOL.Children[location]).Background.Equals(Brushes.White))
-                        ++living;//add to living if white
+                    else {
+                        Dispatcher.Invoke(() => {
+                            neighbour = (Button)GOL.Children[location];
+                            if (neighbour.Background.Equals(Brushes.White))
+                                ++living;//add to living iff white
+                        });
+                    }
                 }
             }
             return living;
